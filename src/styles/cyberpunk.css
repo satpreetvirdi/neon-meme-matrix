@@ -1,0 +1,317 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
+/* Cyberpunk Variables */
+:root {
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff0080;
+  --neon-purple: #8000ff;
+  --neon-green: #00ff41;
+  --neon-orange: #ff4000;
+  --dark-bg: #0a0a0a;
+  --card-bg: rgba(16, 16, 32, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* Matrix Background */
+.matrix-bg {
+  background: 
+    linear-gradient(45deg, #000011 0%, #000033 50%, #000011 100%),
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(128, 0, 255, 0.1) 0%, transparent 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.03) 2px,
+      rgba(0, 255, 255, 0.03) 4px
+    );
+  animation: scanlines 2s linear infinite;
+  pointer-events: none;
+}
+
+/* Neon Text Effects */
+.neon-text {
+  font-family: 'Orbitron', monospace;
+  color: var(--neon-cyan);
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+  animation: neon-flicker 2s infinite alternate;
+}
+
+.neon-text-pink {
+  font-family: 'Orbitron', monospace;
+  color: var(--neon-pink);
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor;
+}
+
+.neon-text-green {
+  font-family: 'Orbitron', monospace;
+  color: var(--neon-green);
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor;
+}
+
+/* Glass Morphism Cards */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Neon Borders */
+.neon-border {
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 10px var(--neon-cyan),
+    inset 0 0 10px rgba(0, 255, 255, 0.1);
+  animation: border-pulse 2s infinite alternate;
+}
+
+.neon-border-pink {
+  border: 2px solid var(--neon-pink);
+  box-shadow: 
+    0 0 10px var(--neon-pink),
+    inset 0 0 10px rgba(255, 0, 128, 0.1);
+}
+
+/* Interactive Buttons */
+.cyber-button {
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.2));
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:hover {
+  box-shadow: 
+    0 0 20px var(--neon-cyan),
+    0 0 40px var(--neon-cyan),
+    0 0 60px var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+.cyber-button-pink {
+  background: linear-gradient(45deg, rgba(255, 0, 128, 0.1), rgba(255, 0, 128, 0.2));
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+
+.cyber-button-pink:hover {
+  box-shadow: 
+    0 0 20px var(--neon-pink),
+    0 0 40px var(--neon-pink);
+}
+
+/* Holographic Effects */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 255, 0.1) 0%,
+    rgba(255, 0, 128, 0.1) 25%,
+    rgba(128, 0, 255, 0.1) 50%,
+    rgba(0, 255, 65, 0.1) 75%,
+    rgba(0, 255, 255, 0.1) 100%
+  );
+  animation: holographic-shift 3s ease-in-out infinite;
+}
+
+/* Input Styles */
+.cyber-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 
+    0 0 10px var(--neon-cyan),
+    inset 0 0 5px rgba(0, 255, 255, 0.1);
+  outline: none;
+}
+
+/* Animations */
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes border-pulse {
+  0% { box-shadow: 0 0 10px var(--neon-cyan); }
+  100% { box-shadow: 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan); }
+}
+
+@keyframes holographic-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+/* Particle Effect Container */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  animation: float 6s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(100px); opacity: 0; }
+}
+
+/* Leaderboard Styles */
+.leaderboard-item {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), transparent);
+  border-left: 4px solid var(--neon-cyan);
+  transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.2), rgba(0, 255, 255, 0.05));
+  transform: translateX(10px);
+}
+
+/* Terminal Effect */
+.terminal {
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 65, 0.3),
+    inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.terminal::before {
+  content: '> ';
+  color: var(--neon-cyan);
+}
+
+/* Meme Card Enhancements */
+.meme-card {
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.meme-card:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+}
+
+.meme-image {
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.meme-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.meme-card:hover .meme-image::after {
+  left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .neon-text {
+    font-size: 2rem;
+  }
+  
+  .cyber-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
